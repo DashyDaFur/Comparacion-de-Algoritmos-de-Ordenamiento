@@ -89,8 +89,8 @@ Los algoritmos se ejecutaron 1000 veces sobre arreglos aleatorios, con tamaños 
 
 ![Gráfica de Algoritmos](img/Grafica.png)
 
-- 🚀 Mas rapidos: Quick sort y Shell sort
-- 🐢 Mas lentos: Bubble sort y Selection sort
+- 🚀 Mas rapidos: Quick sort y Shell sort.
+- 🐢 Mas lentos: Bubble sort y Selection sort.
 
 ## 📜 Licencia  
 Este proyecto está bajo la licencia [MIT](LICENSE).

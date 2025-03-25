@@ -62,6 +62,7 @@ El proyecto genera datos aleatorios y mide en nanosegundos el tiempo que tarda c
 
 - **`main.cpp`**: Contiene el código principal que genera los datos, ejecuta los algoritmos de ordenamiento y exporta los resultados.
 - **`README.md`**: Contiene una descripción general del proyecto.
+- **`LICENSE`**: Contiene la licencia MIT.
 - **Archivos CSV**: Los archivos CSV generados se guardan en el directorio raíz del proyecto.
 - **Carpeta img**: Contiene todas las imágenes utilizadas en este repositorio.
 

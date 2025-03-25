@@ -16,10 +16,14 @@
 #define MIN_NUM 1
 #define MAX_NUM 100
 
+// Funcion para crear un valor aleatorio entre los rangos inicio y fin
 inline double Aleatorio(int inicio, int fin);
+// Entra el arreglo y lo ordena, regresando la duracion en nanosegundos
 double ProcesarArreglo(std::vector<double>& a, int algoritmo);
+// Exporta el arreglo a un archivo CSV
 void ExportarCSV(const std::vector<std::vector<double>>& datos, const std::string& nombre);
 
+// Metodos de ordenacion
 void OrdenarPorInsercion(std::vector<double>& s, int n);
 void OrdenarBurbuja(std::vector<double>& s, int n);
 void OrdenarSeleccion(std::vector<double>& s, int n);
@@ -37,14 +41,19 @@ using namespace std::chrono;
 
 int main()
 {
+    // Inicia la semilla para números aleatorios
     srand(time(NULL));
+    // Nombres de los algoritmos de ordenamiento
     string Nombres[NUM_ALGORITMOS] = {"Insercion", "Burbuja", "Seleccion", "Mezcla", "Rapido", "Heap", "Shell"};
 
+    // Vector para almacenar tiempos: [algoritmo][tamaño][prueba]
     vector<vector<vector<double>>> tiempos(NUM_ALGORITMOS);
 
+    // Prueba con diferentes tamaños de arreglos
     for (int tam = MIN_TAM; tam <= MAX_TAM; tam += INCREMENTO) {
         cout << "Size: " << tam << endl;
 
+        // Genera arreglos aleatorios para las pruebas
         vector<vector<double>> arreglos(NUM_PRUEBAS, vector<double>(tam));
         for (int prueba = 0; prueba < NUM_PRUEBAS; prueba++) {
             for (int j = 0; j < tam; j++) {
@@ -52,6 +61,7 @@ int main()
             }
         }
 
+        // Ejecuta cada algoritmo de ordenamiento
         for (int algoritmo = 0; algoritmo < NUM_ALGORITMOS; algoritmo++) {
             vector<double> tiempos_tam;
 
@@ -66,7 +76,7 @@ int main()
             cout << "  " << Nombres[algoritmo] << " Finished" << endl;
         }
     }
-
+    // Exporta resultados a archivos CSV
     for (int algoritmo = 0; algoritmo < NUM_ALGORITMOS; algoritmo++) {
         ExportarCSV(tiempos[algoritmo], to_string(algoritmo + 1) + "_" + Nombres[algoritmo] + "_Ordenamiento.csv");
     }

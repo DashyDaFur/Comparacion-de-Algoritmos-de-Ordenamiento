@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 
+// -- Valores configurables --
+// NOTA: Recomiendo no cambiar el NUM_ALGORITMOS
 #define NUM_ALGORITMOS 7
 #define NUM_PRUEBAS 1000
 #define MIN_TAM 10

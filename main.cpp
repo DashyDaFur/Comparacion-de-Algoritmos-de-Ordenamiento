@@ -23,7 +23,7 @@ double ProcesarArreglo(std::vector<double>& a, int algoritmo);
 // Exporta el arreglo a un archivo CSV
 void ExportarCSV(const std::vector<std::vector<double>>& datos, const std::string& nombre);
 
-// Metodos de ordenacion
+// Metodos de ordenamiento
 void OrdenarPorInsercion(std::vector<double>& s, int n);
 void OrdenarBurbuja(std::vector<double>& s, int n);
 void OrdenarSeleccion(std::vector<double>& s, int n);

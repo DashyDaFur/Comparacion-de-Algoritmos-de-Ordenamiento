@@ -5,7 +5,6 @@
 Este proyecto compara el rendimiento de varios algoritmos de ordenamiento en términos de tiempo de ejecución.
 
 Los algoritmos incluidos son:
-Los algoritmos incluidos son:
 <details>
 <summary><strong>1. Ordenamiento por Inserción (Insertion Sort)</strong></summary>
 Recorre el arreglo tomando cada elemento y lo inserta en la posición correcta dentro de la sección ya ordenada, desplazando los elementos mayores hacia la derecha para hacer espacio.

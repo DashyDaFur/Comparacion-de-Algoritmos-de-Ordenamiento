@@ -63,16 +63,19 @@ int main()
 
         // Ejecuta cada algoritmo de ordenamiento
         for (int algoritmo = 0; algoritmo < NUM_ALGORITMOS; algoritmo++) {
-            vector<double> tiempos_tam;
+            // Crea un vector donde se almacenan los tiempos, que servira para meter los tiempos separados por el algoritmo
+            vector<double> tiempos_alg;
 
             for (int prueba = 0; prueba < NUM_PRUEBAS; prueba++) {
+                // Crea una copia de los arreglos aleatorios para que en cada iteracion siempre evalue con los mismos arreglos aleatorios
                 vector<double> copia = arreglos[prueba];
 
                 double tiempo = ProcesarArreglo(copia, algoritmo);
-                tiempos_tam.push_back(tiempo);
+                tiempos_alg.push_back(tiempo);
             }
 
-            tiempos[algoritmo].push_back(tiempos_tam);
+            // Mete los tiempos en el arreglo principal en su correspondiente espacio del algoritmo
+            tiempos[algoritmo].push_back(tiempos_alg);
             cout << "  " << Nombres[algoritmo] << " Finished" << endl;
         }
     }
@@ -81,14 +84,15 @@ int main()
         ExportarCSV(tiempos[algoritmo], to_string(algoritmo + 1) + "_" + Nombres[algoritmo] + "_Ordenamiento.csv");
     }
 
-    system("pause");
     return 0;
 }
 
 double ProcesarArreglo(std::vector<double>& a, int algoritmo)
 {
+    // Empieza a medir el tiempo
     auto inicio = steady_clock::now();
 
+    // Elige el algoritmo correspondiente y lo ordena
     switch (algoritmo) {
         case 0: OrdenarPorInsercion(a,a.size()); break;
         case 1: OrdenarBurbuja(a,a.size()); break;
@@ -99,32 +103,39 @@ double ProcesarArreglo(std::vector<double>& a, int algoritmo)
         case 6: OrdenarShell(a, a.size()); break;
     }
 
+    // Terminan de medir el tiempo y calcula la diferencia
     auto fin = steady_clock ::now();
     auto duracion = duration_cast<nanoseconds>(fin - inicio);
 
+    // Regresa el tiempo en nanosegundos
     return duracion.count();
 }
 
 
 inline double Aleatorio(int inicio, int fin)
 {
+    // Regresa un numero aleatorio entre inicio y fin
     return inicio + rand() % (fin - inicio + 1);
 }
 
 void ExportarCSV(const std::vector<std::vector<double>>& datos, const std::string& nombre)
 {
+    // Abre el archivo, si no existe lo crea, si existe lo sobrescribe
     ofstream archivo(nombre);
 
+    // Error en caso de que no abra el archivo
     if (!archivo.is_open()) {
         cerr << "Error al abrir el archivo: " << nombre << endl;
         return;
     }
 
+    // Escribe en el archivo toda la primera fila de los tamaños
     for (int tam = MIN_TAM; tam <= MAX_TAM; tam += INCREMENTO) {
         archivo << "Size " << tam << ',';
     }
     archivo << endl;
 
+    // Escribe en el archivo todos los tiempos
     for (int i = 0; i < NUM_PRUEBAS; i++) {
         for (int j = 0; j < datos.size(); j++) {
             archivo << datos[j][i] << ',';
@@ -132,6 +143,7 @@ void ExportarCSV(const std::vector<std::vector<double>>& datos, const std::strin
         archivo << endl;
     }
 
+    // Cierra el archivo
     archivo.close();
 }
 

@@ -59,7 +59,7 @@ El proyecto genera datos aleatorios y mide en nanosegundos el tiempo que tarda c
    ```
 2. Compila el código:
    ```bash
-   g++ -o ordenamiento main.cpp -std=c++20
+   g++ -o ordenamiento main.cpp -std=c++20 -O2
    ```
 3. Ejecuta el programa:
    ```bash
@@ -106,7 +106,7 @@ Puedes modificar las siguientes constantes en el código para ajustar el program
 - `MIN_NUM`: Valor mínimo de los números aleatorios generados.
 - `MAX_NUM`: Valor máximo de los números aleatorios generados.
 
-## ✅ Resultados
+## ✅ Resultados y Analisis
 
 Los resultados se exportan a archivos CSV en el directorio raíz del proyecto. Cada archivo CSV contiene los tiempos de ejecución en nanosegundos para cada tamaño de arreglo y cada prueba.
 
@@ -122,7 +122,7 @@ Los algoritmos se ejecutaron 1000 veces sobre arreglos aleatorios, con tamaños 
 
 ![Gráfica de Algoritmos: Linux](img/GraficaLinux.png)
 
-Se observa que algoritmos como Bubble Sort, Insertion Sort y Selection Sort tienen un crecimiento exponencial en el tiempo, mientras que Merge Sort, Quick Sort y Heap Sort son significativamente más eficientes para tamaños grandes.
+Se observa que algoritmos como Bubble Sort, Insertion Sort y Selection Sort tienen un crecimiento exponencial (cuadratico) en el tiempo, mientras que Merge Sort, Quick Sort y Heap Sort son significativamente más eficientes para tamaños grandes, siendo un crecimiento lineal y logaritmico. Por otro lado, vemos que hay mucho menos ruido en la grafica de Linux a comparacion con la de Windows 10 a pesar de tener un peor procesador.
 
 ## 📜 Licencia  
 Este proyecto está bajo la licencia [MIT](LICENSE).

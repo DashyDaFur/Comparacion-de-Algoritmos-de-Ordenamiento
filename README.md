@@ -122,8 +122,7 @@ Los algoritmos se ejecutaron 1000 veces sobre arreglos aleatorios, con tamaños 
 
 ![Gráfica de Algoritmos: Linux](img/GraficaLinux.png)
 
-- 🚀 Mas rapidos: Quick sort, Shell sort y Heap sort.
-- 🐢 Mas lentos: Bubble sort y Selection sort.
+Se observa que algoritmos como Bubble Sort, Insertion Sort y Selection Sort tienen un crecimiento exponencial en el tiempo, mientras que Merge Sort, Quick Sort y Heap Sort son significativamente más eficientes para tamaños grandes.
 
 ## 📜 Licencia  
 Este proyecto está bajo la licencia [MIT](LICENSE).
